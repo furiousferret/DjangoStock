@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if ticker %}
+    {{ ticker }}
+{% endif %}   
+
+{% if api %}
+    {% if api == "Error" %}
+        There was a problem with your ticker, try again
+    {% else %}
+
+        <h1>{{ api.companyName }}</h1>
+        Price: $<h1>{{ api.latestPrice }}</h1>
+        Close:<h1>{{ api.previousClose }}</h1>
+        Market Cap:<h1>{{ api.marketCap }}</h1>
+        YTD Change:<h1>{{ api.ytdChange }}</h1>
+        Year High:<h1>{{ api.week52High }}</h1>
+        Year Low:<h1>{{ api.week52Low }}</h1> 
+    
+    {% endif %}   
+{% endif %}
+  
+
+{% endblock %}
